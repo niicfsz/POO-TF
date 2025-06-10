@@ -8,18 +8,17 @@ public class Janela {
     public static void main(String[] args) {
         JFrame janela = new JFrame("2DCraft");
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        janela.setSize(800, 800); // tamanho ajustado para a grade
+        janela.setSize(800, 800);
 
         JPanel gridPanel = new JPanel();
-        gridPanel.setLayout(new GridLayout(20, 20)); // 20 linhas x 20 colunas
+        gridPanel.setLayout(new GridLayout(20, 20));
 
-        // Criar e adicionar os 400 blocos
         for (int i = 0; i < 400; i++) {
             JPanel bloco = new JPanel();
 
             bloco.setBackground(Color.BLACK);
 
-            bloco.setBorder(new LineBorder(Color.DARK_GRAY, 1)); // borda de 1 pixel
+            bloco.setBorder(new LineBorder(Color.DARK_GRAY, 1));
 
             gridPanel.add(bloco);
         }
