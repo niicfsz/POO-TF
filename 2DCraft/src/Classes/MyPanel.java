@@ -2,8 +2,10 @@ package Classes;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class MyPanel extends JPanel {
+public class MyPanel extends JPanel implements KeyListener {
     private ImageIcon icon;
 
     public MyPanel(ImageIcon icon) {
@@ -22,4 +24,15 @@ public class MyPanel extends JPanel {
             g.drawImage(icon.getImage(), 0, 0, getWidth(), getHeight(), null);
         }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
