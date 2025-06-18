@@ -19,7 +19,7 @@ public class JogoGrid {
             frame.add(blocos[i]);
         }
 
-        blocos[posicao].setIcon(BlocoTipo.AVATAR.getIcon());
+        blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
 
         frame.setVisible(true);
     }
