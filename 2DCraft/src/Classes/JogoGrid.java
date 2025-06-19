@@ -63,15 +63,19 @@ public class JogoGrid implements KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
                 if (coluna > 0) moverAvatar(posicao - 1);
+                tipoIndex = 0;
                 break;
             case KeyEvent.VK_RIGHT:
                 if (coluna < 19) moverAvatar(posicao + 1);
+                tipoIndex = 0;
                 break;
             case KeyEvent.VK_UP:
                 if (linha > 0) moverAvatar(posicao - 20);
+                tipoIndex = 0;
                 break;
             case KeyEvent.VK_DOWN:
                 if (linha < 19) moverAvatar(posicao + 20);
+                tipoIndex = 0;
                 break;
             case KeyEvent.VK_SPACE:
                 mudarBloco();
