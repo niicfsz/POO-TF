@@ -27,6 +27,7 @@ public class JogoGrid implements KeyListener {
         frame.setFocusable(true);
         frame.requestFocusInWindow();
 
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
