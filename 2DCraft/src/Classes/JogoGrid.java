@@ -3,10 +3,12 @@ package Classes;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class JogoGrid {
+public class JogoGrid implements KeyListener {
     private MyPanel[] blocos = new MyPanel[20*20];
-    private int posicao;
+    private int posicao = 0;
 
     public JogoGrid() {
         JFrame frame = new JFrame("2DCraft");
@@ -21,8 +23,51 @@ public class JogoGrid {
 
         blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
 
+        frame.addKeyListener(this);
+        frame.setFocusable(true);
+        frame.requestFocusInWindow();
+
         frame.setVisible(true);
     }
+
+    private void moverAvatar(int novaPosicao){
+        if(novaPosicao < 0 || novaPosicao >= blocos.length){
+            return;
+        }
+
+        blocos[posicao].removerSobreposto();
+
+        posicao = novaPosicao;
+
+        blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int linha = posicao / 20;
+        int coluna = posicao % 20;
+
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                if (coluna > 0) moverAvatar(posicao - 1);
+                break;
+            case KeyEvent.VK_RIGHT:
+                if (coluna < 19) moverAvatar(posicao + 1);
+                break;
+            case KeyEvent.VK_UP:
+                if (linha > 0) moverAvatar(posicao - 20);
+                break;
+            case KeyEvent.VK_DOWN:
+                if (linha < 19) moverAvatar(posicao + 20);
+                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(JogoGrid::new);

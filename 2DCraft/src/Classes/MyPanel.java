@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class MyPanel extends JPanel implements KeyListener {
+public class MyPanel extends JPanel {
     private ImageIcon icon;
     private ImageIcon sobrepostoIcon;
 
@@ -38,15 +38,4 @@ public class MyPanel extends JPanel implements KeyListener {
             g.drawImage(sobrepostoIcon.getImage(), 0, 0, getWidth(), getHeight(), null);
         }
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {}
 }
