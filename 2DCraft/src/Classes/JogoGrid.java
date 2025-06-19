@@ -43,9 +43,6 @@ public class JogoGrid implements KeyListener {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
     public void keyPressed(KeyEvent e) {
         int linha = posicao / 20;
         int coluna = posicao % 20;
@@ -68,6 +65,9 @@ public class JogoGrid implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(JogoGrid::new);
