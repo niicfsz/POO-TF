@@ -2,8 +2,6 @@ package Classes;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class MyPanel extends JPanel {
     private ImageIcon icon;
@@ -15,7 +13,6 @@ public class MyPanel extends JPanel {
 
     public void setIcon(ImageIcon icon) {
         this.icon = icon;
-        repaint();
     }
 
     public void setSobrepostoIcon(ImageIcon icon) {
@@ -24,7 +21,7 @@ public class MyPanel extends JPanel {
     }
 
     public void removerSobreposto(){
-        this.sobrepostoIcon =null;
+        this.sobrepostoIcon = null;
         repaint();
     }
 

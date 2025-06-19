@@ -1,7 +1,6 @@
 package Classes;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -9,6 +8,7 @@ import java.awt.event.KeyListener;
 public class JogoGrid implements KeyListener {
     private MyPanel[] blocos = new MyPanel[20*20];
     private int posicao = 0;
+    private int tipoIndex = 0;
 
     public JogoGrid() {
         JFrame frame = new JFrame("2DCraft");
@@ -42,6 +42,18 @@ public class JogoGrid implements KeyListener {
         blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
     }
 
+    private void mudarBloco(){
+        BlocoTipo[] blocosEnum = BlocoTipo.values();
+
+        do {
+            tipoIndex = (tipoIndex + 1) % blocosEnum.length;
+        } while (blocosEnum[tipoIndex] == BlocoTipo.AVATAR);
+
+        blocos[posicao].setIcon(blocosEnum[tipoIndex].getIcon());
+
+        blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         int linha = posicao / 20;
@@ -59,6 +71,9 @@ public class JogoGrid implements KeyListener {
                 break;
             case KeyEvent.VK_DOWN:
                 if (linha < 19) moverAvatar(posicao + 20);
+                break;
+            case KeyEvent.VK_SPACE:
+                mudarBloco();
                 break;
         }
     }
