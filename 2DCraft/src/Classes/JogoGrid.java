@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class JogoGrid implements KeyListener {
-    private MyPanel[] blocos = new MyPanel[20*20];
+    private final MyPanel[] blocos = new MyPanel[20*20];
     private int posicao = 0;
     private int tipoIndex = 0;
 
