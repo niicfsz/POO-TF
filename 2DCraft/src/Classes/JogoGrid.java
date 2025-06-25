@@ -43,16 +43,31 @@ public class JogoGrid implements KeyListener {
         blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
     }
 
-    private void mudarBloco(){
+    private void mudarBloco(int opcao){
         BlocoTipo[] blocosEnum = BlocoTipo.values();
 
-        do {
-            tipoIndex = (tipoIndex + 1) % blocosEnum.length;
-        } while (blocosEnum[tipoIndex] == BlocoTipo.AVATAR);
-
-        blocos[posicao].setIcon(blocosEnum[tipoIndex].getIcon());
-
-        blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+        switch (opcao){
+            case 0:
+                blocos[posicao].setIcon(blocosEnum[0].getIcon());
+                blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+                break;
+            case 1:
+                blocos[posicao].setIcon(blocosEnum[1].getIcon());
+                blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+                break;
+            case 2:
+                blocos[posicao].setIcon(blocosEnum[2].getIcon());
+                blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+                break;
+            case 3:
+                blocos[posicao].setIcon(blocosEnum[3].getIcon());
+                blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+                break;
+            case 4:
+                blocos[posicao].setIcon(blocosEnum[4].getIcon());
+                blocos[posicao].setSobrepostoIcon(BlocoTipo.AVATAR.getIcon());
+                break;
+        }
     }
 
     @Override
@@ -78,7 +93,19 @@ public class JogoGrid implements KeyListener {
                 tipoIndex = 0;
                 break;
             case KeyEvent.VK_SPACE:
-                mudarBloco();
+                mudarBloco(0);
+                break;
+            case KeyEvent.VK_1:
+                mudarBloco(1);
+                break;
+            case KeyEvent.VK_2:
+                mudarBloco(2);
+                break;
+            case KeyEvent.VK_3:
+                mudarBloco(3);
+                break;
+            case KeyEvent.VK_4:
+                mudarBloco(4);
                 break;
         }
     }
